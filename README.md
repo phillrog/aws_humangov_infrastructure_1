@@ -9,14 +9,14 @@ Antes de começar, certifique-se de ter uma **chave SSH** criada com o nome `hum
 Crie um s3 e e um dynamodb com um table LockID:
 
 
-    ```bash
-    aws dynamodb create-table \
-    --table-name humangov-terraform-state-lock-table \
-    --attribute-definitions AttributeName=LockID,AttributeType=S \
-    --key-schema AttributeName=LockID,KeyType=HASH \
-    --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
-    --region us-east-1
-    ```
+``` 
+aws dynamodb create-table \
+--table-name humangov-terraform-state-lock-table \
+--attribute-definitions AttributeName=LockID,AttributeType=S \
+--key-schema AttributeName=LockID,KeyType=HASH \
+--provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
+--region us-east-1
+```
 
 E altere o nome do s3 e do dynamodb table no no arquivo backend.tf
 
@@ -29,26 +29,37 @@ Caso queira criar uma Amazon linux e precise saber como configurar VS Code para 
 
 Leia este artigo [Conectando seu VS Code ao Poder da AWS: Desenvolvimento Python na Nuvem](https://medium.com/@phillrsouza/conectando-seu-vs-code-ao-poder-da-aws-desenvolvimento-python-na-nuvem-4e731c673f6b)
 
-No terminal VSCode , conecte-se ao EC2
+No terminal VSCode , conecte-se ao EC2 e clone este repositório
+
+![image](https://github.com/user-attachments/assets/5e250bd9-74c1-469f-bdfb-0ed0b955f63e)
+
 
 **Navegue até a pasta do seu projeto:**
 
-    ```bash
-    cd human-gov-infrastructure
-    ```
+```bash
+ cd aws_humangov_infrastructure_1/terraform/
+```
 
-Crie um usuário chamado terraform e dê permissão "AdministratorAccess" para ele criar rules e outras recursos.
+![image](https://github.com/user-attachments/assets/1075d8ab-7e63-4fd7-9f24-ccdd1767abb8)
+
+Volte na AWS e crie um usuário chamado terraform e dê permissão "AdministratorAccess" para ele criar rules e outras recursos.
 
 ![image](https://github.com/user-attachments/assets/b07019fe-1715-4d2d-b018-8e10f2b08858)
 
 Por último configure crie um access key para este usuário e no terminal do VSCode execute:
 
 ```bash
-    export AWS_ACCESS_KEY_ID=Accesskey
-    export AWS_SECRET_ACCESS_KEY=Secretkey
+export AWS_ACCESS_KEY_ID=Accesskey
+export AWS_SECRET_ACCESS_KEY=Secretkey
 ```
 
-Teste
+Teste o terraform
+```
+terraform init
+terraform plan
+terraform apply -auto-approve
+terraform destroy -auto-approve
+```
 
 ```bash
     terraform init
