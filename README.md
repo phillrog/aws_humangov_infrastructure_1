@@ -18,9 +18,10 @@ Crie um s3 e e um dynamodb com um table LockID:
     --region us-east-1
     ```
 
-E altere no no arquivo backend.tf
+E altere o nome do s3 e do dynamodb table no no arquivo backend.tf
 
----
+![image](https://github.com/user-attachments/assets/223f7fb1-7734-4267-9c7b-ab58d6b6229f)
+
 
 Crie um ec2 e Instale terraform, ansible em seguida configure o acesso remoto explore.
 
@@ -28,6 +29,7 @@ Caso queira criar uma Amazon linux e precise saber como configurar VS Code para 
 
 Leia este artigo [Conectando seu VS Code ao Poder da AWS: Desenvolvimento Python na Nuvem](https://medium.com/@phillrsouza/conectando-seu-vs-code-ao-poder-da-aws-desenvolvimento-python-na-nuvem-4e731c673f6b)
 
+No terminal VSCode , conecte-se ao EC2
 
 **Navegue até a pasta do seu projeto:**
 
@@ -35,3 +37,21 @@ Leia este artigo [Conectando seu VS Code ao Poder da AWS: Desenvolvimento Python
     cd human-gov-infrastructure
     ```
 
+Crie um usuário chamado terraform e dê permissão "AdministratorAccess" para ele criar rules e outras recursos.
+
+![image](https://github.com/user-attachments/assets/b07019fe-1715-4d2d-b018-8e10f2b08858)
+
+Por último configure crie um access key para este usuário e no terminal do VSCode execute:
+
+```bash
+    export AWS_ACCESS_KEY_ID=Accesskey
+    export AWS_SECRET_ACCESS_KEY=Secretkey
+```
+
+Teste
+
+```bash
+    terraform init
+    terraform plan
+    terraform apply
+```
