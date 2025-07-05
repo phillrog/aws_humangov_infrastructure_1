@@ -22,8 +22,7 @@ E altere o nome do s3 e do dynamodb table no no arquivo backend.tf
 
 ![image](https://github.com/user-attachments/assets/223f7fb1-7734-4267-9c7b-ab58d6b6229f)
 
-
-Crie um ec2 e Instale terraform, ansible em seguida configure o acesso remoto explore.
+Crie um ec2 chamado codespace e instale "terraform e ansible" em seguida configure o acesso remoto explore.
 
 Caso queira criar uma Amazon linux e precise saber como configurar VS Code para acessar a instância:
 
@@ -56,7 +55,30 @@ export AWS_SECRET_ACCESS_KEY=Secretkey
 Teste o terraform
 ```
 terraform init
+```
+
+![image](https://github.com/user-attachments/assets/7f159b99-7707-4746-8d94-70f0bc157c88)
+
+```
 terraform plan
+```
+
+![image](https://github.com/user-attachments/assets/8eac03b4-25bc-4daa-8fa7-f011ffe4aebd)
+
+```
 terraform apply -auto-approve
+```
+
+![image](https://github.com/user-attachments/assets/2e7f4136-3dd8-40ba-ab97-a32e69c4e445)
+
+
+![image](https://github.com/user-attachments/assets/5015d4a7-8743-46ce-b6a4-44bb5970973c)
+
+
+```
 terraform destroy -auto-approve
 ```
+
+![image](https://github.com/user-attachments/assets/9a729739-dae6-451f-a03f-275b00b46722)
+
+### IMPORTANTE: Destrua os recursos criados no inicio caso não for usar mais.
